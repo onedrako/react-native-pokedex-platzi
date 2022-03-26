@@ -6,9 +6,11 @@ import { PokemonsList } from '../components/PokemonsList'
 const Pokedex = () => {
   const [pokemons, setPokemons] = useState([])
 
-  useEffect(
-    () => async () => await loadPokemons(),
-    [])
+  useEffect(() => {
+    (async () => {
+      await loadPokemons()
+    })()
+  }, [])
 
   const loadPokemons = async () => {
     try {

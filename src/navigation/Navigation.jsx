@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator()
 
 const Navigation = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName='Pokedex' >
       <Tab.Screen
         name="Favorites"
         component={Favorites}
