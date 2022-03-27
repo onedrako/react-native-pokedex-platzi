@@ -1,18 +1,54 @@
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, Image, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import React from 'react'
+import { color } from 'react-native-reanimated'
 
 const PokemonCard = (props) => {
   const { pokemon } = props
 
   const goToPokemon = () => {
-    console.log(`Vamos al Pokémona: ${pokemon.name}`)
+    console.log(`Vamos al Pokémon: ${pokemon.name}`)
   }
-
+  console.log(pokemon)
   return (
-    <TouchableWithoutFeedback onPress={goToPokemon} >
-      <Text>Hola Mundo</Text>
+    <TouchableWithoutFeedback onPress={goToPokemon}>
+        <View style={styles.card}>
+            <View style={styles.dataContainer}>
+              <Text style={styles.pokemonText} >#{`${pokemon.order}`.padStart(3, 0)}</Text>
+              <Text style={styles.pokemonText} >{pokemon.name}</Text>
+            </View>
+            <Image source={{ uri: pokemon.image }} style={styles.image} />
+        </View>
+
     </TouchableWithoutFeedback>
   )
 }
 
+const styles = StyleSheet.create({
+  card: {
+    flex: 1,
+    backgroundColor: '#a4d1b3',
+    width: 100,
+    height: 100,
+    margin: 8,
+    borderRadius: 20
+  },
+  image: {
+    width: 90,
+    height: 90
+  },
+  pokemonText: {
+    fontSize: 15,
+    color: '#fff',
+    fontWeight: 'bold',
+    paddingTop: 5,
+    paddingLeft: 5,
+    textAlign: 'center'
+  },
+  dataContainer: {
+    flex: 0,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingRight: 10
+  }
+})
 export { PokemonCard }

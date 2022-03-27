@@ -25,7 +25,7 @@ const Pokedex = () => {
           name: pokemonDetails.name,
           type: pokemonDetails.types[0].type.name,
           order: pokemonDetails.order,
-          imagen:
+          image:
             pokemonDetails.sprites.other['official-artwork'].front_default
         })
       }
