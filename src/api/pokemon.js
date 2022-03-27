@@ -1,9 +1,9 @@
 import { API_HOST } from '../utils/constants'
 
-const getPokemonApi = async (id) => {
+const getPokemonApi = async (endPointUrl) => {
   try {
     const url = `${API_HOST}/pokemon?limit=20&offset=0/`
-    const response = await fetch(url)
+    const response = await fetch(endPointUrl || url)
     const data = await response.json()
 
     return data
