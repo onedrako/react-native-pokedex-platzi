@@ -2,6 +2,7 @@ import { View } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { getPokemonApi, getPokemonDetailsByUrlApi } from '../api/pokemon'
 import { PokemonsList } from '../components/PokemonsList'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 const Pokedex = () => {
   const [pokemons, setPokemons] = useState([])
@@ -39,9 +40,9 @@ const Pokedex = () => {
   }
 
   return (
-    <View>
+    <SafeAreaView>
       <PokemonsList pokemons={pokemons} loadPokemons={loadPokemons} isNext={nextUrl}/>
-    </View>
+    </SafeAreaView>
   )
 }
 

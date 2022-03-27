@@ -1,9 +1,11 @@
-import { FlatList, StyleSheet, ActivityIndicator } from 'react-native'
+import { FlatList, StyleSheet, ActivityIndicator, Platform } from 'react-native'
 import React from 'react'
 import { PokemonCard } from './PokemonCard'
 
 const PokemonsList = (props) => {
   const { pokemons, loadPokemons, isNext } = props
+
+  console.log()
 
   const loadMore = () => {
     loadPokemons()
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
   },
   spinner: {
     marginTop: 20,
-    marginBottom: 60
+    marginBottom: Platform.OS === 'android' ? 90 : 60
   }
 })
 
