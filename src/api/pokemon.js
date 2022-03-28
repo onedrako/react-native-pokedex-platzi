@@ -22,4 +22,15 @@ const getPokemonDetailsByUrlApi = async (url) => {
   }
 }
 
-export { getPokemonApi, getPokemonDetailsByUrlApi }
+const getPokemonDetailsApi = async (id) => {
+  try {
+    const url = `${API_HOST}/pokemon/${id}`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export { getPokemonApi, getPokemonDetailsByUrlApi, getPokemonDetailsApi }
