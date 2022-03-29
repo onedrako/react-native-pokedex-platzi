@@ -6,7 +6,7 @@ import { getPokemonDetailsApi } from '../api/pokemon'
 import useAuth from '../hooks/useAuth'
 import { PokemonsList } from '../components/PokemonsList'
 
-const Favorites = () => {
+const FavoritesScreen = () => {
   const [pokemons, setPokemons] = useState([])
   const { auth } = useAuth()
 
@@ -44,4 +44,4 @@ const Favorites = () => {
   )
 }
 
-export { Favorites }
+export { FavoritesScreen }
