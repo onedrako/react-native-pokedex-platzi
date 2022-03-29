@@ -9,10 +9,14 @@ import {
 import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { user } from '../../utils/userDb'
+
+import { user, userDetails } from '../../utils/userDb'
+
+import useAuth from '../../hooks/useAuth'
 
 const LoginForm = () => {
   const [error, setError] = useState('')
+  const { login } = useAuth()
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -23,7 +27,7 @@ const LoginForm = () => {
       if (username !== user.username || password !== user.password) {
         setError('Usuario o contraseña incorrectos')
       } else {
-        alert('Bienvenido')
+        login(userDetails)
       }
     }
   })
